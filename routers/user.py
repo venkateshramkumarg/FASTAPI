@@ -1,11 +1,10 @@
 from fastapi import APIRouter,Depends,status
-import schemas,database
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
+import schemas,database
 from repository import user
 
-
 router=APIRouter(
-    tags=['user']
 )
 
 @router.post('/create_user',response_model=schemas.UserResponse,status_code=status.HTTP_201_CREATED)
@@ -16,6 +15,3 @@ def add_user(request:schemas.UserCreate,db:Session=Depends(database.get_db)):
 def get_user(user_id,db:Session=Depends(database.get_db)):
     return user.get_user(user_id,db)
 
-@router.post('/check_user',status_code=status.HTTP_200_OK)
-def check_user(request:schemas.UserCreate,db:Session=Depends(database.get_db)):
-    return user.check_user(request,db)
