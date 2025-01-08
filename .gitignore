@@ -22,3 +22,6 @@ env.bak/
 dist/
 build/
 *.wheel
+
+# SQLite database
+blog.db
