@@ -25,3 +25,5 @@ build/
 
 # SQLite database
 blog.db
+
+.env

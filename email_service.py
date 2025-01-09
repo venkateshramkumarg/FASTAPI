@@ -1,9 +1,11 @@
 import smtplib
 from email.mime.text import MIMEText
+from os import environ as env
+
 
 def send_email(email: str, message: str):
-    sender_email = "venkateshramkumar3@gmail.com"
-    app_password = "kizz qqao hkap fofr"
+    sender_email = env.get('SENDER_EMAIL')
+    app_password = env.get('APP_PASSWORD')
 
     msg = MIMEText(message)
     msg["Subject"] = "Notification"
