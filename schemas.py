@@ -18,7 +18,7 @@ class UserResponse(BaseModel):
     email: str
     blogs: List[BlogBase]
     class Config:
-        from_attributes = True 
+        from_attributes = True  
 
 class BlogResponse(BlogBase):
     id: int

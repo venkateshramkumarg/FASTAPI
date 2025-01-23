@@ -7,7 +7,7 @@ def send_email(email: str, message: str):
     sender_email = env.get('SENDER_EMAIL')
     app_password = env.get('APP_PASSWORD')
 
-    msg = MIMEText(message)
+    msg = MIMEText(message) 
     msg["Subject"] = "Notification"
     msg["From"] = sender_email
     msg["To"] = email
